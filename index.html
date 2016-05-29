@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basal Metabolic Rate Calculator</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <main class="calculator" id="app">
+    <div class="item fields">
+      <form class="item">
+        <div class="form-block">
+          <div class="btn-group">
+            <button class='male' v-bind:class="{'selected': isMale}" @click.stop.prevent="setGender"><span>Male</span></button>
+            <button class='female' v-bind:class="{'selected': !isMale}" @click.stop.prevent="setGender"><span>Female</span></button>
+          </div>
+        </div>
+        <div class="form-block">
+          <label for="age">Age</label>
+          <input type="range" v-model="age" min="18" max="98" step="1" @change="calcBmr()">
+          <span>{{age}}</span>
+        </div>
+        <div class="form-block">
+          <label for="height">Height</label>
+          <input type="range" v-model="height" min="36" max="96" step="1" @change="calcBmr()">
+          <span>{{feet}}ft</span> <span v-if="inches > 0">{{inches}}in</span>
+        </div>
+        <div class="form-block">
+          <label for="weight">Weight</label>
+          <input type="range" v-model="weight" min="50" max="450" @change="calcBmr()">
+          <span>{{weight}}lbs</span>
+        </div>
+        <div class="form-block">
+          <label for="activity">Activity</label>
+          <input type="range" v-model="selectedActivity" step="1" min="1" max="5" @change="calcBmr()">
+          <span>{{activityLabel}}</span>
+        </div>
+      </form>
+    </div>
+
+    <div class="item results">
+      <h3>Basal Metabolic Rate Calculator</h3>
+      <h3>Your BMR:</h3>
+      <h2>{{bmr}}</h2>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
+  <script src="js/bmr_calc.js"></script>
+</body>
+</html>
