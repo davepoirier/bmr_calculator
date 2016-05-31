@@ -80,7 +80,6 @@ new Vue({
     },
     setGender: function(el) {
       this.gender = el.currentTarget.className.includes('female') ? 'female' : 'male';
-      console.log(this.gender);
       this.calcBmr();
       return this.gender;
     }
