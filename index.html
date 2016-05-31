@@ -16,22 +16,22 @@
         </div>
         <div class="form-block">
           <div class='label'><label for="age">Age</label></div>
-          <input type="range" v-model="age" min="18" max="98" step="1" @change="calcBmr()">
+          <input type="range" v-model="age" min="18" max="98" step="1" @change="calcBmr()" :disabled="updating">
           <div class="input-value"><span>{{age}}</span></div>
         </div>
         <div class="form-block">
           <div class='label'><label for="height">Height</label></div>
-          <input type="range" v-model="height" min="36" max="96" step="1" @change="calcBmr()">
+          <input type="range" v-model="height" min="36" max="96" step="1" @change="calcBmr()" :disabled="updating">
           <div class="input-value"><span>{{feet}}ft</span> <span v-if="inches > 0">{{inches}}in</span></div>
         </div>
         <div class="form-block">
           <div class='label'><label for="weight">Weight</label></div>
-          <input type="range" v-model="weight" min="50" max="450" @change="calcBmr()">
+          <input type="range" v-model="weight" min="50" max="450" @change="calcBmr()" :disabled="updating">
           <div class="input-value"><span>{{weight}}lbs</span></div>
         </div>
         <div class="form-block">
           <div class='label'><label for="activity">Activity</label></div>
-          <input type="range" v-model="selectedActivity" step="1" min="1" max="5" @change="calcBmr()">
+          <input type="range" v-model="selectedActivity" step="1" min="1" max="5" @change="calcBmr()" :disabled="updating">
           <div class="input-value"><span>{{activityLabel}}</span></div>
         </div>
       </form>

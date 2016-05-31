@@ -1,6 +1,7 @@
 new Vue({
   el: '#app',
   data: {
+    updating: false,
     bmr: 2018,
     displayBmr: 2018,
     weight: 150,
@@ -28,6 +29,11 @@ new Vue({
       }
     ],
     selectedActivity: 2
+  },
+  watch: {
+    displayBmr: function(newVal, oldVal) {
+      this.updating = (newVal !== this.bmr);
+    }
   },
   computed: {
     feet: function() {
@@ -57,7 +63,7 @@ new Vue({
       var difference = Math.abs(this.bmr - this.displayBmr);
 
       for(i=0; i < difference; i++) {
-        this.updateDisplayBmr(i*1.2);
+        this.updateDisplayBmr(i*0.5);
       }
     },
     updateDisplayBmr: function(speed) {
