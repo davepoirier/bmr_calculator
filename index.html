@@ -15,24 +15,24 @@
           </div>
         </div>
         <div class="form-block">
-          <label for="age">Age</label>
+          <div class='label'><label for="age">Age</label></div>
           <input type="range" v-model="age" min="18" max="98" step="1" @change="calcBmr()">
-          <span>{{age}}</span>
+          <div class="input-value"><span>{{age}}</span></div>
         </div>
         <div class="form-block">
-          <label for="height">Height</label>
+          <div class='label'><label for="height">Height</label></div>
           <input type="range" v-model="height" min="36" max="96" step="1" @change="calcBmr()">
-          <span>{{feet}}ft</span> <span v-if="inches > 0">{{inches}}in</span>
+          <div class="input-value"><span>{{feet}}ft</span> <span v-if="inches > 0">{{inches}}in</span></div>
         </div>
         <div class="form-block">
-          <label for="weight">Weight</label>
+          <div class='label'><label for="weight">Weight</label></div>
           <input type="range" v-model="weight" min="50" max="450" @change="calcBmr()">
-          <span>{{weight}}lbs</span>
+          <div class="input-value"><span>{{weight}}lbs</span></div>
         </div>
         <div class="form-block">
-          <label for="activity">Activity</label>
+          <div class='label'><label for="activity">Activity</label></div>
           <input type="range" v-model="selectedActivity" step="1" min="1" max="5" @change="calcBmr()">
-          <span>{{activityLabel}}</span>
+          <div class="input-value"><span>{{activityLabel}}</span></div>
         </div>
       </form>
     </div>
@@ -40,7 +40,7 @@
     <div class="item results">
       <h3>Basal Metabolic Rate Calculator</h3>
       <h3>Your BMR:</h3>
-      <h2>{{bmr}}</h2>
+      <h2>{{displayBmr}}</h2>
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
